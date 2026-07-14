@@ -295,6 +295,163 @@
             <p>BRUSHORA is built for an independent artist who works across charcoal, graphite, ink, gouache, and acrylic washes. The style is expressive without losing the likeness of the subject.</p>
             <p>Visitors can browse originals, request a personal portrait, or ask for custom work such as family drawings, pet portraits, gift pieces, and memorial artwork.</p>
         </div>
-    </section>
+    </section> 
+<!-- WHATSAPP CHECKOUT SCRIPT BY GEMINI -->
+<style>
+  /* Buttons select hone par kaisa dikhenge uski style */
+  .format-btn.active, .size-btn.active {
+    border-color: #000000 !important;
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Apne sabhi product cards ko select karein
+  const productCards = document.querySelectorAll(".grid > div, .card-class-here"); // agar product card ki koi specific class ho toh yahan change kar sakte hain
+
+  // Agar direct grid ke andar cards hain toh hum automatic detect kar lenge
+  const cards = document.querySelectorAll("div"); // isko generic banaya hai taaki har card par kaam kare
+  
+  // Har card ke andar selection handle karne ke liye loop
+  document.querySelectorAll('.format-btn, .size-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Apne siblings (baki buttons) se active class hatao
+      const parent = this.parentElement;
+      parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      // Is button ko active karo
+      this.classList.add('active');
+    });
+  });
+
+  // Add to Cart Buttons par click handler
+  const addToCartButtons = document.querySelectorAll("button"); // Add to cart waale buttons
+  addToCartButtons.forEach(btn => {
+    if (btn.innerText.includes("Add to Cart")) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Apne card ki details dhoondho
+        const card = btn.closest('div'); // button ka parent card
+        const title = card.querySelector('h3, h2, .title-class')?.innerText || "Painting";
+        const price = card.querySelector('.price-class, span')?.innerText || "";
+        
+        // Selected Format aur Size dhoondho
+        let selectedFormat = "";
+        let selectedSize = "";
+
+        card.querySelectorAll('.format-btn.active').forEach(b => selectedFormat = b.innerText);
+        card.querySelectorAll('.size-btn.active').forEach(b => selectedSize = b.innerText);
+
+        // Agar select nahi kiya toh pehla wala default maan lo
+        if (!selectedFormat) {
+          const firstFormat = card.querySelector('.format-btn');
+          selectedFormat = firstFormat ? firstFormat.innerText : "Standard";
+        }
+        if (!selectedSize) {
+          const firstSize = card.querySelector('.size-btn');
+          selectedSize = firstSize ? firstSize.innerText : "Standard";
+        }
+
+        // WhatsApp Details
+        const phoneNumber = "917568035595"; // <-- YAHAN APNA WHATSAPP NUMBER DAALO (With Country Code 91)
+        
+        const message = `Hello Brushora! 🎨\n\nMujhe ye painting order karni hai:\n📦 *Painting Name:* ${title}\n✨ *Format:* ${selectedFormat}\n📏 *Size:* ${selectedSize}\n\nKya ye available hai?`;
+        
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+        // WhatsApp open karo
+        window.open(whatsappUrl, '_blank');
+      });
+    }
+  });
+});
+</script>
+<style>
+  /* Button select hone par premium black border dikhega */
+  .br-selected-btn {
+    border: 2px solid #000000 !important;
+    background-color: #f7f1eb !important;
+    font-weight: bold !important;
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Pure page par format aur size options ko handle karna
+  document.body.addEventListener('click', function(e) {
+    const target = e.target;
+    if (target.tagName === 'BUTTON' || target.tagName === 'SPAN') {
+      const btn = target.closest('button');
+      if (!btn) return;
+      
+      const text = btn.innerText.trim();
+      
+      // Agar click kiya hua button format ya size ka hai
+      const isFormat = ["Canvas", "Glass Frame", "Art Paper"].includes(text);
+      const isSize = ["8×10in", "11×14in", "16×20in", "15×20in"].includes(text);
+      
+      if (isFormat || isSize) {
+        e.preventDefault();
+        // Baki aaju-baju ke buttons se selection hatao
+        const parentDiv = btn.parentElement;
+        parentDiv.querySelectorAll('button').forEach(b => b.classList.remove('br-selected-btn'));
+        // Is button ko select karo
+        btn.classList.add('br-selected-btn');
+      }
+    }
+  });
+
+  // 2. Add to Cart button par action handle karna
+  document.body.addEventListener('click', function(e) {
+    const target = e.target;
+    if (target.tagName === 'BUTTON' || target.tagName === 'SPAN') {
+      const btn = target.closest('button');
+      if (!btn || !btn.innerText.includes("Add to Cart")) return;
+      
+      e.preventDefault();
+      
+      // Sabse pass wala container dhoondho jisme painting ki details hain
+      const container = btn.closest('div'); 
+      const parentContainer = container ? container.parentElement : null;
+      
+      // Painting ka naam aur price auto-detect karna
+      let title = "Custom Painting";
+      let price = "";
+      
+      if (parentContainer) {
+        const headings = parentContainer.querySelectorAll('h1, h2, h3, h4, p');
+        headings.forEach(h => {
+          const txt = h.innerText.trim();
+          if (txt.includes('₹') || txt.includes('$')) price = txt;
+          else if (txt.length > 2 && !txt.includes('reviews') && !txt.includes('FORMAT') && !txt.includes('SIZE')) {
+            if(title === "Custom Painting") title = txt;
+          }
+        });
+        
+        // Selected Format aur Size extract karna
+        let selectedFormat = "Selected Format";
+        let selectedSize = "Selected Size";
+        
+        const selectedButtons = parentContainer.querySelectorAll('.br-selected-btn');
+        selectedButtons.forEach(b => {
+          const t = b.innerText.trim();
+          if (["Canvas", "Glass Frame", "Art Paper"].includes(t)) selectedFormat = t;
+          if (["8×10in", "11×14in", "16×20in", "15×20in"].includes(t)) selectedSize = t;
+        });
+        
+        // WhatsApp ke liye Details Configure karein
+        const phoneNumber = "917568035595"; // <-- ⚠️ YAHAN APNA REAL WHATSAPP NUMBER DAALO (e.g., 9195XXXXXXXX)
+        
+        const message = `Hello Brushora! 🎨\n\nMujhe ye artwork order karna hai:\n\n🛒 *Name:* ${title}\n✨ *Format:* ${selectedFormat}\n📏 *Size:* ${selectedSize}\n💰 *Price:* ${price}\n\nKya ye order process ho sakta hai?`;
+        
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>
