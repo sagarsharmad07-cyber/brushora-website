@@ -529,4 +529,40 @@
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Double nested string tags ko global replacement bypass dena
+    document.querySelectorAll('img').forEach(img => {
+      let currentSrc = img.getAttribute('src') || '';
+      
+      // Agar direct string me double '<img' injected ho chuka hai
+      if (currentSrc.includes('<img') || currentSrc.includes('assets/')) {
+        // High quality production assets dynamically push karna sequence structure ke basis par
+        if (img.alt && img.alt.includes("Market")) {
+          img.src = "https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500";
+        } else if (img.alt && img.alt.includes("Hands")) {
+          img.src = "https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500";
+        } else if (img.alt && img.alt.includes("Shadow")) {
+          img.src = "https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500";
+        } else if (img.alt && img.alt.includes("Rustic")) {
+          img.src = "https://images.unsplash.com/photo-1576016770956-debb63d90029?w=500";
+        } else if (img.alt && img.alt.includes("Luminous")) {
+          img.src = "https://images.unsplash.com/photo-1579783928589-7ee96d66a282?w=500";
+        } else {
+          // Default baseline backup (Quiet Gaze / Vintage Muse)
+          img.src = "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500";
+        }
+        img.removeAttribute('onerror');
+      }
+    });
+
+    // 2. Pure UI layout cleaner text extraction nodes ke liye
+    // Jo floating broken elements syntax layout destroy kar rahe the use block element context se remove karna
+    const bodyContent = document.body.innerHTML;
+    if (bodyContent.includes('" class="product-img"')) {
+      // Floating literal code strings filter mapping
+      document.body.innerHTML = bodyContent.replace(/" class="product-img" alt="Quiet Gaze" onerror="this.src='https:\/\/images.unsplash.com\/photo-1579783902614-a3fb3927b6a5\?w=500'">/g, '');
+    }
+  });
+</script>
 </html>
