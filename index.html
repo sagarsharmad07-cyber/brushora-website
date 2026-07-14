@@ -501,4 +501,32 @@
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Broken double-nested image elements ko live high-quality URLs se forcefully replace karna
+    const allImages = document.querySelectorAll('img');
+    const secureBackup = [
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500', // Hero Img
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500', // Quiet Gaze
+      'https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500', // Market Afternoon
+      'https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500'  // Hands In Light
+    ];
+
+    allImages.forEach((img, i) => {
+      // Agar tag ke andar syntax error ya broken assets path hai to fix karein
+      if (secureBackup[i] && (img.src.includes('img') || img.src.includes('assets/'))) {
+        img.removeAttribute('onerror');
+        img.src = secureBackup[i];
+      }
+    });
+
+    // 2. Navigation items double click fix aur safe rendering check
+    const navLinks = document.querySelectorAll('header nav a');
+    navLinks.forEach(link => {
+      if(link.innerHTML.includes('<') || link.innerHTML.includes('>')) {
+        link.innerHTML = link.innerText; 
+      }
+    });
+  });
+</script>
 </html>
