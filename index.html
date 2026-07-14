@@ -104,7 +104,7 @@
       <p>A storefront and studio page for a drawing artist who creates expressive portraits, figure studies, and warm hand-finished wall pieces for collectors and personal gifts.</p>
     </div>
     <div class="hero-img">
-      <img src="assets/quiet-gaze.jpg" alt="Quiet Gaze" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500'">
+      <img src="<img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" class="product-img" alt="Quiet Gaze">="Quiet Gaze" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500'">
       <div class="featured-badge">
         <span style="font-size:10px; font-family:sans-serif; color:#b45f38; font-weight:bold;">FEATURED ORIGINAL</span>
         <h4 style="font-size:18px; font-weight:normal; margin-top:2px;">Quiet Gaze</h4>
@@ -147,7 +147,7 @@
 
     <div class="products-grid">
       <div class="product-card">
-        <img src="assets/quiet-gaze.jpg" class="product-img" alt="Quiet Gaze" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500'">
+        <img src="<img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" alt="Quiet Gaze">" class="product-img" alt="Quiet Gaze" onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500'">
         <div class="product-meta">
           <span class="product-tag">Charcoal, Acrylic Wash</span>
           <span class="product-price">₹1,499</span>
@@ -476,6 +476,27 @@
           // Direct online image set kar di taaki 404 error aaye hi nahi
           img.src = brokenImages[fileName];
         }
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Teeno featured image elements ko sahi paths ke sath fresh reload karna
+    const targetImages = document.querySelectorAll('.hero-img img, .products-grid .product-card img');
+    
+    const correctUrls = [
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500', // Hero image
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500', // Quiet Gaze product
+      'https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500', // Market Afternoon product
+      'https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500'  // Hands In Light product
+    ];
+
+    targetImages.forEach((img, index) => {
+      if (correctUrls[index]) {
+        img.removeAttribute('onerror');
+        img.className = index === 0 ? '' : 'product-img';
+        img.src = correctUrls[index];
       }
     });
   });
