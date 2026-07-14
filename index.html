@@ -458,4 +458,26 @@
     }
   });
 </script>
+<!-- CONSOLE 404 CLEANER SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Top 3 featured products ki local images ko fix karne ke liye
+    const brokenImages = {
+      'quiet-gaze.jpg': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500',
+      'market-afternoon.jpg': 'https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500',
+      'hands-in-light.jpg': 'https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500'
+    };
+
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('assets/')) {
+        const fileName = src.split('/').pop();
+        if (brokenImages[fileName]) {
+          // Direct online image set kar di taaki 404 error aaye hi nahi
+          img.src = brokenImages[fileName];
+        }
+      }
+    });
+  });
+</script>
 </html>
