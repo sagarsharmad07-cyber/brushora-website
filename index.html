@@ -369,4 +369,93 @@
     });
   </script>
 </body>
+<!-- ==========================================
+     ALL COLLECTION SECTION (AUTOMATIC OVERLAY)
+     ========================================== -->
+<div id="collection" style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid #e6dfd5; padding-bottom: 20px;">
+    <div>
+      <span style="font-size:12px; color:#b45f38; font-family:sans-serif; font-weight:bold; text-transform:uppercase;">Studio Catalog</span>
+      <h2 style="font-size: 48px; font-weight: normal;">All Collection.</h2>
+    </div>
+    <p style="font-size: 14px; font-family: sans-serif; color: #6e675b; max-width: 400px; line-height: 1.5;">
+      Browse through our complete collection. Love a piece but short on budget? Tap the link below each card to talk price.
+    </p>
+  </div>
+
+  <div id="collectionGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+    <!-- JavaScript automatic items will load here -->
+  </div>
+</div>
+
+<script>
+  // Automatically injects the "All Collection" link into the top navigation menu
+  document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector('header nav');
+    if (nav && !document.querySelector('a[href="#collection"]')) {
+      const collectionLink = document.createElement('a');
+      collectionLink.href = '#collection';
+      collectionLink.innerText = 'All Collection';
+      collectionLink.style.margin = '0 12px';
+      collectionLink.style.textDecoration = 'none';
+      collectionLink.style.color = '#2c2923';
+      collectionLink.style.fontSize = '14px';
+      collectionLink.style.fontFamily = 'sans-serif';
+      
+      // Insert right after the first link (Works)
+      if (nav.children.length > 0) {
+        nav.insertBefore(collectionLink, nav.children[1]);
+      } else {
+        nav.appendChild(collectionLink);
+      }
+    }
+
+    // 10 Painting items data loader
+    const items = [
+      { name: "Vintage Muse", type: "Oil Pastel", price: "₹1,500", desc: "Retro grainy portrait with dramatic golden hour lighting layers.", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400" },
+      { name: "Shadow Play", type: "Charcoal Sketch", price: "₹1,200", desc: "Fine charcoal rendering exploring deep textures and moody contrast.", img: "https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=400" },
+      { name: "Golden Hour", type: "Acrylic Wash", price: "₹1,650", desc: "Warm, rich tones reminiscent of 90s vintage cinema framing.", img: "https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=400" },
+      { name: "Silent Echo", type: "Ink Wash", price: "₹999", desc: "Minimalist flow lines focusing on raw emotions and pure simplicity.", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400" },
+      { name: "Abstract Linen", type: "Gouache", price: "₹1,350", desc: "Soft, warm textured painting on natural tone layout.", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400" },
+      { name: "Windy Portrait", type: "Graphite", price: "₹1,800", desc: "Dynamic hair movement captured in classic fine art pencils.", img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=400" },
+      { name: "Rustic Gaze", type: "Sanguine Sketch", price: "₹1,100", desc: "Earth tones combined with dark expressive structural studies.", img: "https://images.unsplash.com/photo-1576016770956-debb63d90029?w=400" },
+      { name: "Luminous Touch", type: "Mixed Media", price: "₹1,700", desc: "Deep shadows melting down into a warm golden aura highlights.", img: "https://images.unsplash.com/photo-1579783928589-7ee96d66a282?w=400" },
+      { name: "Old Cinema", type: "Charcoal Paste", price: "₹1,400", desc: "Inspired by vintage framing style, grainy, textured, bold strokes.", img: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=400" },
+      { name: "Warm Figure", type: "Pastel & Ink", price: "₹1,250", desc: "A delicate hand-drawn figure highlight with deep organic shadows.", img: "https://images.unsplash.com/photo-1579783928624-a1ef2e7ef693?w=400" }
+    ];
+
+    const grid = document.getElementById("collectionGrid");
+    if(grid) {
+      items.forEach(item => {
+        grid.innerHTML += `
+          <div class="product-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <img src="${item.img}" class="product-img" alt="${item.name}">
+              <div class="product-meta">
+                <span class="product-tag">${item.type}</span>
+                <span class="product-price">${item.price}</span>
+              </div>
+              <h3>${item.name}</h3>
+              <p class="product-desc">${item.desc}</p>
+              <a href="#commissions" class="budget-link" style="display: inline-block; font-family: sans-serif; font-size: 12px; color: #b45f38; text-decoration: none; margin-bottom: 15px; font-style: italic; font-weight: 500;">Budget a bit tight? Request less →</a>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        `;
+      });
+      
+      // Re-bind the WhatsApp functionality to newly added buttons
+      document.querySelectorAll('#collectionGrid .add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const card = this.closest('.product-card');
+          const title = card.querySelector('h3').innerText;
+          const price = card.querySelector('.product-price').innerText;
+          const textMessage = `Hello Brushora! 🎨\n\nMujhe ye artwork purchase karna hai:\n🛒 *Name:* ${title}\n💰 *Price:* ${price}\n\nKya ye checkout ke liye ready hai?`;
+          window.open(`https://wa.me/919876543210?text=${encodeURIComponent(textMessage)}`, '_blank');
+        });
+      });
+    }
+  });
+</script>
 </html>
