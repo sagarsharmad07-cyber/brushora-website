@@ -2,64 +2,38 @@
 <html lang="en">
 <head>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; overflow: hidden; }
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #000; }
     
     #intro-screen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=2000');
+      /* Naya Background Image Source */
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1600');
       background-size: cover; background-position: center;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      z-index: 2000; transition: opacity 1.5s ease;
+      z-index: 999;
     }
     
-    .enter-btn {
-      padding: 15px 40px; background: transparent; border: 1px solid #e9e2d8;
-      color: #e9e2d8; cursor: pointer; text-transform: uppercase;
-      letter-spacing: 4px; font-size: 12px; margin-top: 20px;
-    }
-    
-    .music-btn {
-      position: fixed; bottom: 20px; right: 20px; z-index: 3000;
-      background: rgba(0,0,0,0.5); border: 1px solid #e9e2d8; color: #e9e2d8;
-      padding: 8px 15px; cursor: pointer; font-size: 10px;
-    }
+    .btn { padding: 15px 40px; border: 1px solid #fff; background: transparent; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 4px; }
   </style>
 </head>
 <body>
 
-  <button class="music-btn" onclick="toggleMusic()" id="mBtn">MUSIC ON</button>
-  
   <div id="intro-screen">
-    <h1 style="color: #fff; letter-spacing: 10px; font-weight: 300;">BRUSHORA</h1>
-    <div style="width: 50px; height: 1px; background: #e9e2d8; margin: 10px 0;"></div>
-    <button class="enter-btn" onclick="startExperience()">ENTER GALLERY</button>
+    <h1 style="color: #fff; letter-spacing: 10px;">BRUSHORA</h1>
+    <button class="btn" onclick="start()">ENTER GALLERY</button>
   </div>
 
-  <audio id="bg-music" loop>
+  <audio id="audio" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    const music = document.getElementById("bg-music");
-    const mBtn = document.getElementById("mBtn");
-
-    function startExperience() {
-      music.currentTime = 0; // Gaana shuru se baje ga
-      music.play();
-      mBtn.innerText = "MUSIC OFF";
-      document.getElementById('intro-screen').style.opacity = '0';
-      setTimeout(() => { document.getElementById('intro-screen').style.display = 'none'; }, 1500);
-    }
-
-    function toggleMusic() {
-      if (music.paused) {
-        music.play();
-        mBtn.innerText = "MUSIC OFF";
-      } else {
-        music.pause();
-        mBtn.innerText = "MUSIC ON";
-      }
+    function start() {
+      const audio = document.getElementById("audio");
+      audio.currentTime = 0;
+      audio.play();
+      document.getElementById('intro-screen').style.display = 'none';
     }
   </script>
 </body>
