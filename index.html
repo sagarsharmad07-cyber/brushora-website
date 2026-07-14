@@ -26,4 +26,459 @@
     .stat-card { flex: 1; background: #fffdfa; border: 1px solid #e9e2d8; padding: 25px; border-radius: 4px; display: flex; align-items: center; gap: 15px; }
     .stat-icon { width: 40px; height: 40px; border-radius: 50%; background: #285560; color: white; display: flex; align-items: center; justify-content: center; }
     .stat-info span { font-size: 11px; text-transform: uppercase; font-family: sans-serif; color: #8a8273; }
-    .stat-info h3 { font-
+    .stat-info h3 { font-size: 24px; font-weight: normal; margin-top: 2px; }
+
+    .shop-section { max-width: 1200px; margin: 0 auto 100px auto; }
+    .shop-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid #e6dfd5; padding-bottom: 20px; }
+    .shop-header h2 { font-size: 48px; font-weight: normal; }
+    .shop-header p { font-size: 14px; font-family: sans-serif; color: #6e675b; max-width: 400px; line-height: 1.5; }
+
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
+    .collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    
+    .product-card { background: #fffdfa; border: 1px solid #e9e2d8; border-radius: 6px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
+    .product-img { width: 100%; height: 280px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
+    .product-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .product-tag { font-size: 11px; text-transform: uppercase; font-family: sans-serif; color: #8a8273; }
+    .product-price { font-size: 18px; font-weight: bold; }
+    .product-card h3 { font-size: 24px; font-weight: normal; margin-bottom: 10px; }
+    .product-desc { font-size: 13px; font-family: sans-serif; color: #6e675b; line-height: 1.5; margin-bottom: 15px; min-height: 40px; }
+    
+    .budget-link { display: inline-block; font-family: sans-serif; font-size: 12px; color: #b45f38; text-decoration: none; margin-bottom: 15px; font-style: italic; font-weight: 500; }
+    .budget-link:hover { text-decoration: underline; }
+
+    .selector-label { font-size: 11px; text-transform: uppercase; font-family: sans-serif; font-weight: bold; margin-bottom: 8px; color: #4a453b; }
+    .btn-group { display: flex; gap: 8px; margin-bottom: 15px; }
+    .variant-btn { background: white; border: 1px solid #d4cbbd; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-family: sans-serif; cursor: pointer; transition: all 0.2s; color: #2c2923; }
+    .variant-btn.active, .variant-btn:hover { border-color: #2c2923; background: #2c2923; color: white; font-weight: bold; }
+    
+    .add-to-cart { width: 100%; background: #b45f38; color: white; border: none; padding: 12px; border-radius: 4px; font-weight: bold; font-size: 14px; cursor: pointer; margin-top: auto; transition: background 0.2s; font-family: sans-serif; }
+    .add-to-cart:hover { background: #9c4f2e; }
+
+    .about-section { max-width: 1200px; margin: 0 auto 100px auto; background: #2c2923; color: #fbf6f0; padding: 60px 40px; border-radius: 4px; display: flex; gap: 40px; }
+    .about-title { flex: 1; }
+    .about-title span { color: #d4cbbd; font-size: 12px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+    .about-title h2 { font-size: 48px; font-weight: normal; margin-top: 10px; line-height: 1.2; }
+    .about-content { flex: 2; display: flex; gap: 30px; font-family: sans-serif; font-size: 15px; line-height: 1.7; color: #d4cbbd; }
+    
+    .order-section { max-width: 1200px; margin: 0 auto 60px auto; display: flex; gap: 60px; }
+    .order-info { flex: 1; }
+    .order-info span { font-size: 12px; text-transform: uppercase; color: #b45f38; font-family: sans-serif; font-weight: bold; }
+    .order-info h2 { font-size: 56px; font-weight: normal; margin: 15px 0; line-height: 1.1; }
+    .order-info p { font-family: sans-serif; font-size: 15px; line-height: 1.6; color: #5a554a; margin-bottom: 30px; }
+    .order-list { list-style: none; }
+    .order-list li { font-family: sans-serif; font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    
+    .form-container { flex: 1.2; background: #fffdfa; border: 1px solid #e9e2d8; padding: 40px; border-radius: 8px; position: relative; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 11px; font-family: sans-serif; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; color: #4a453b; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #d4cbbd; background: #fffdfa; border-radius: 4px; font-family: sans-serif; font-size: 14px; color: #2c2923; }
+    .form-row { display: flex; gap: 20px; }
+    .form-row .form-group { flex: 1; }
+    .form-submit { width: 100%; background: #b45f38; color: white; border: none; padding: 15px; border-radius: 4px; font-weight: bold; font-size: 15px; cursor: pointer; font-family: sans-serif; }
+    .form-submit:hover { background: #9c4f2e; }
+    .direct-mail { font-family: sans-serif; font-size: 12px; color: #8a8273; margin-top: 15px; text-align: center; }
+
+    .success-box { display: none; text-align: center; padding: 30px 10px; animation: fadeInUp 0.4s ease forwards; }
+    .success-box h3 { font-size: 42px; font-weight: normal; margin-bottom: 15px; color: #2c2923; letter-spacing: -0.5px; }
+    .success-box p { font-family: sans-serif; font-size: 14px; color: #5a554a; line-height: 1.6; margin-bottom: 35px; }
+    .success-badge { display: inline-block; background: rgba(180, 95, 56, 0.1); color: #b45f38; padding: 6px 16px; border-radius: 20px; font-family: sans-serif; font-size: 11px; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+    .back-btn { display: inline-block; background: #2c2923; color: white; text-decoration: none; padding: 14px 35px; border-radius: 4px; font-family: sans-serif; font-size: 13px; font-weight: bold; transition: background 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+    .back-btn:hover { background: #1a1a1a; }
+    .success-email-badge { background: #2c2923; color: white; padding: 8px 18px; border-radius: 20px; font-family: sans-serif; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 30px; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    
+    @media (max-width: 900px) {
+      .hero, .order-section, .about-section, .products-grid, .collection-grid { grid-template-columns: 1fr; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">BRUSHORA</div>
+    <nav>
+      <a href="#works">Works</a>
+      <a href="#collection">All Collection</a>
+      <a href="#about">About</a>
+      <a href="#commissions">Commissions</a>
+    </nav>
+    <a href="#commissions" class="email-icon">✉</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <span class="tagline">✦ Original drawings, portraits, and commissioned artwork</span>
+      <h1>Portraits with a soulful touch.</h1>
+      <p>A storefront and studio page for a drawing artist who creates expressive portraits, figure studies, and warm hand-finished wall pieces for collectors and personal gifts.</p>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" alt="Quiet Gaze">
+      <div class="featured-badge">
+        <span style="font-size:10px; font-family:sans-serif; color:#b45f38; font-weight:bold;">FEATURED ORIGINAL</span>
+        <h4 style="font-size:18px; font-weight:normal; margin-top:2px;">Quiet Gaze</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">👁</div>
+      <div class="stat-info">
+        <span>Total Visitors</span>
+        <h3 id="visitor-count">1,432</h3>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">✎</div>
+      <div class="stat-info">
+        <span>Commission Types</span>
+        <h3>Portraits, pets, gifts</h3>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">#</div>
+      <div class="stat-info">
+        <span>Originals Available</span>
+        <h3>10+ pieces</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="shop-section">
+    <div class="shop-header">
+      <div>
+        <span style="font-size:12px; color:#b45f38; font-family:sans-serif; font-weight:bold;">FEATURED ARTWORK</span>
+        <h2>Shop the wall.</h2>
+      </div>
+      <p>Each piece can be customized by size and material to perfectly fit your space. Hand-finished for art collectors and premium styling.</p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500" class="product-img" alt="Quiet Gaze">
+          <div class="product-meta">
+            <span class="product-tag">Charcoal, Acrylic Wash</span>
+            <span class="product-price">₹1,499</span>
+          </div>
+          <h3>Quiet Gaze</h3>
+          <p class="product-desc">Charcoal and acrylic portrait with a soft, watchful mood.</p>
+          <a href="#commissions" class="budget-link">Budget flexible? Let's talk price →</a>
+        </div>
+        <div>
+          <div class="selector-label">Format</div>
+          <div class="btn-group">
+            <button class="variant-btn active">Art Paper</button>
+            <button class="variant-btn">Canvas</button>
+          </div>
+          <div class="selector-label">Size</div>
+          <div class="btn-group">
+            <button class="variant-btn active">8×10in</button>
+            <button class="variant-btn">11×14in</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=500" class="product-img" alt="Market Afternoon">
+          <div class="product-meta">
+            <span class="product-tag">Ink and Gouache</span>
+            <span class="product-price">₹1,299</span>
+          </div>
+          <h3>Market Afternoon</h3>
+          <p class="product-desc">Ink and gouache street scene with lively color and movement.</p>
+          <a href="#commissions" class="budget-link">Budget flexible? Let's talk price →</a>
+        </div>
+        <div>
+          <div class="selector-label">Format</div>
+          <div class="btn-group">
+            <button class="variant-btn active">Art Paper</button>
+            <button class="variant-btn">Canvas</button>
+          </div>
+          <div class="selector-label">Size</div>
+          <div class="btn-group">
+            <button class="variant-btn active">8×10in</button>
+            <button class="variant-btn">11×14in</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=500" class="product-img" alt="Hands In Light">
+          <div class="product-meta">
+            <span class="product-tag">Graphite and Pastel</span>
+            <span class="product-price">₹1,199</span>
+          </div>
+          <h3>Hands In Light</h3>
+          <p class="product-desc">Figure drawing focused on gesture, warmth, and delicate light.</p>
+          <a href="#commissions" class="budget-link">Budget flexible? Let's talk price →</a>
+        </div>
+        <div>
+          <div class="selector-label">Format</div>
+          <div class="btn-group">
+            <button class="variant-btn active">Art Paper</button>
+            <button class="variant-btn">Canvas</button>
+          </div>
+          <div class="selector-label">Size</div>
+          <div class="btn-group">
+            <button class="variant-btn active">8×10in</button>
+            <button class="variant-btn">11×14in</button>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collection" class="shop-section">
+    <div class="shop-header">
+      <div>
+        <span style="font-size:12px; color:#b45f38; font-family:sans-serif; font-weight:bold;">STUDIO CATALOG</span>
+        <h2>All Collection.</h2>
+      </div>
+      <p>Browse through our complete collection of original studies. Love a piece but short on budget? Tap the negotiation link below each card.</p>
+    </div>
+
+    <div class="collection-grid">
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400" class="product-img" alt="Vintage Muse">
+          <div class="product-meta"><span class="product-tag">Oil Pastel</span><span class="product-price">₹1,500</span></div>
+          <h3>Vintage Muse</h3>
+          <p class="product-desc">Retro grainy portrait with dramatic golden hour lighting layers.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783928621-7a13d66a6211?w=400" class="product-img" alt="Shadow Play">
+          <div class="product-meta"><span class="product-tag">Charcoal Sketch</span><span class="product-price">₹1,200</span></div>
+          <h3>Shadow Play</h3>
+          <p class="product-desc">Fine charcoal rendering exploring deep textures and moody contrast.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1580136579312-94651dfd596d?w=400" class="product-img" alt="Golden Hour">
+          <div class="product-meta"><span class="product-tag">Acrylic Wash</span><span class="product-price">₹1,650</span></div>
+          <h3>Golden Hour</h3>
+          <p class="product-desc">Warm, rich tones reminiscent of 90s vintage cinema framing.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400" class="product-img" alt="Silent Echo">
+          <div class="product-meta"><span class="product-tag">Ink Wash</span><span class="product-price">₹999</span></div>
+          <h3>Silent Echo</h3>
+          <p class="product-desc">Minimalist flow lines focusing on raw emotions and pure simplicity.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400" class="product-img" alt="Abstract Linen">
+          <div class="product-meta"><span class="product-tag">Gouache</span><span class="product-price">₹1,350</span></div>
+          <h3>Abstract Linen</h3>
+          <p class="product-desc">Soft, warm textured painting on natural tone layout.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=400" class="product-img" alt="Windy Portrait">
+          <div class="product-meta"><span class="product-tag">Graphite</span><span class="product-price">₹1,800</span></div>
+          <h3>Windy Portrait</h3>
+          <p class="product-desc">Dynamic hair movement captured in classic fine art pencils.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1576016770956-debb63d90029?w=400" class="product-img" alt="Rustic Gaze">
+          <div class="product-meta"><span class="product-tag">Sanguine Sketch</span><span class="product-price">₹1,100</span></div>
+          <h3>Rustic Gaze</h3>
+          <p class="product-desc">Earth tones combined with dark expressive structural studies.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783928589-7ee96d66a282?w=400" class="product-img" alt="Luminous Touch">
+          <div class="product-meta"><span class="product-tag">Mixed Media</span><span class="product-price">₹1,700</span></div>
+          <h3>Luminous Touch</h3>
+          <p class="product-desc">Deep shadows melting down into a warm golden aura highlights.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=400" class="product-img" alt="Old Cinema">
+          <div class="product-meta"><span class="product-tag">Charcoal Paste</span><span class="product-price">₹1,400</span></div>
+          <h3>Old Cinema</h3>
+          <p class="product-desc">Inspired by vintage framing style, grainy, textured, bold strokes.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1579783928624-a1ef2e7ef693?w=400" class="product-img" alt="Warm Figure">
+          <div class="product-meta"><span class="product-tag">Pastel & Ink</span><span class="product-price">₹1,250</span></div>
+          <h3>Warm Figure</h3>
+          <p class="product-desc">A delicate hand-drawn figure highlight with deep organic shadows.</p>
+          <a href="#commissions" class="budget-link">Budget a bit tight? Request less →</a>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="about-title">
+      <span>ABOUT THE ARTIST</span>
+      <h2>Drawn slowly, made personally.</h2>
+    </div>
+    <div class="about-content">
+      <p>BRUSHORA is built for an independent artist who works across charcoal, graphite, ink, gouache, and acrylic washes.</p>
+      <p>Visitors can browse originals, request a personal portrait, or ask for custom work such as family drawings, pet portraits, gift pieces, and memorial artwork.</p>
+    </div>
+  </section>
+
+  <section id="commissions" class="order-section">
+    <div class="order-info">
+      <span>CUSTOM PORTRAIT ORDER</span>
+      <h2>Give your custom portrait order.</h2>
+      <p>Use the form for personal portraits, artwork questions, purchase help, or custom drawing ideas.</p>
+      <ul class="order-list">
+        <li>🎨 Single portrait</li>
+        <li>👨‍👩‍👧 Couple or family drawing</li>
+        <li>🐾 Pet portrait</li>
+        <li>🖼 Custom wall artwork</li>
+      </ul>
+    </div>
+
+    <div class="form-container">
+      <form id="brushoraForm" action="https://formspree.io/f/xqeraqjy" method="POST">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="_replyto" placeholder="you@example.com" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Artwork Type</label>
+            <select name="artwork_type">
+              <option value="Single portrait">Single portrait</option>
+              <option value="Couple or family drawing">Couple or family drawing</option>
+              <option value="Pet portrait">Pet portrait</option>
+              <option value="Custom wall artwork">Custom wall artwork</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Budget</label>
+            <select name="budget">
+              <option value="Standard ($250 - $500)">Standard ($250 - $500)</option>
+              <option value="Ask for less money">Ask for less money (Budget Issue)</option>
+              <option value="Custom Budget">Custom Budget</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" rows="5" placeholder="Tell the artist details..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">✉ Give Your Order</button>
+        <div class="direct-mail">Direct email: brushora07@gmail.com</div>
+      </form>
+
+      <div id="successScreen" class="success-box">
+        <span class="success-badge">BRUSHORA</span>
+        <h3>Order sent.</h3>
+        <p>Thanks for your custom portrait request. We will contact you soon.</p>
+        <a href="#" class="back-btn" onclick="window.location.reload();">Back to home</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Variant selector handling
+    document.querySelectorAll('.btn-group').forEach(group => {
+      const buttons = group.querySelectorAll('.variant-btn');
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          buttons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    });
+
+    // Visitor counter
+    document.addEventListener("DOMContentLoaded", function() {
+      let count = localStorage.getItem("brushora_counter");
+      if (!count) count = Math.floor(Math.random() * 600 + 1300);
+      else count = parseInt(count) + 1;
+      localStorage.setItem("brushora_counter", count);
+      document.getElementById("visitor-count").innerText = Number(count).toLocaleString();
+    });
+
+    // WhatsApp handler
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = this.closest('.product-card');
+        const title = card.querySelector('h3').innerText;
+        const price = card.querySelector('.product-price').innerText;
+        const textMessage = `Hello Brushora! 🎨\n\nMujhe ye artwork purchase karna hai:\n🛒 *Name:* ${title}\n💰 *Price:* ${price}`;
+        window.open(`https://wa.me/917568035595?text=${encodeURIComponent(textMessage)}`, '_blank');
+      });
+    });
+
+    // Form handler
+    const form = document.getElementById('brushoraForm');
+    const successScreen = document.getElementById('successScreen');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(() => {
+        form.style.display = 'none';
+        successScreen.style.display = 'block';
+      }).catch(() => {
+        form.style.display = 'none';
+        successScreen.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
