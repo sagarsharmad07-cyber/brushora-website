@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #000; }
+    body { margin: 0; background: #000; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     
-    #intro-screen {
+    #bg {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      /* Naya Background Image Source */
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                  url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1600');
-      background-size: cover; background-position: center;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      z-index: 999;
+      /* Agar .png kaam na kare toh yahan .jpg karke try karna */
+      background: url('baground.png') center/cover;
+      filter: brightness(0.5); z-index: 1;
     }
     
-    .btn { padding: 15px 40px; border: 1px solid #fff; background: transparent; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 4px; }
+    #ui { position: relative; z-index: 2; text-align: center; color: white; }
+    button { padding: 15px 30px; background: transparent; border: 1px solid white; color: white; cursor: pointer; text-transform: uppercase; letter-spacing: 3px; }
   </style>
 </head>
 <body>
 
-  <div id="intro-screen">
-    <h1 style="color: #fff; letter-spacing: 10px;">BRUSHORA</h1>
-    <button class="btn" onclick="start()">ENTER GALLERY</button>
+  <div id="bg"></div>
+
+  <div id="ui">
+    <h1>BRUSHORA</h1>
+    <button onclick="playMusic()">Enter Gallery</button>
   </div>
 
   <audio id="audio" loop>
@@ -29,11 +29,10 @@
   </audio>
 
   <script>
-    function start() {
+    function playMusic() {
       const audio = document.getElementById("audio");
-      audio.currentTime = 0;
       audio.play();
-      document.getElementById('intro-screen').style.display = 'none';
+      document.getElementById("ui").style.display = "none";
     }
   </script>
 </body>
