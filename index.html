@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRUSHORA | Studio</title>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; overflow: hidden; }
+    body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; overflow: hidden; background: #1a1916; }
     
-    /* Premium Abstract Dark/Grainy Background */
     #intro-screen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: #1a1916; /* Solid dark base */
-      background-image: radial-gradient(circle at center, #2c2923 0%, #1a1916 100%);
+      background: radial-gradient(circle at center, #2c2923 0%, #1a1916 100%);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       z-index: 2000; transition: opacity 1.5s ease;
     }
     
-    /* Decorative subtle line element */
-    .intro-decor {
-      width: 100px; height: 1px; background: #e9e2d8; margin: 20px 0; opacity: 0.3;
-    }
-    
     .enter-btn {
-      padding: 18px 50px;
-      background: transparent;
-      border: 1px solid #e9e2d8;
-      color: #e9e2d8;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      font-size: 11px;
-      transition: 0.5s;
+      padding: 18px 50px; background: transparent; border: 1px solid #e9e2d8;
+      color: #e9e2d8; cursor: pointer; text-transform: uppercase;
+      letter-spacing: 6px; font-size: 11px; transition: 0.5s;
     }
     .enter-btn:hover { background: #e9e2d8; color: #1a1916; }
     
@@ -40,27 +30,38 @@
 </head>
 <body>
 
-  <button class="music-btn" onclick="toggleMusic()">🔊 Music Toggle</button>
+  <button class="music-btn" onclick="toggleMusic()">🔊 MUSIC TOGGLE</button>
   
   <div id="intro-screen">
     <h1 style="color: #e9e2d8; letter-spacing: 12px; font-weight: 200;">BRUSHORA</h1>
-    <div class="intro-decor"></div>
-    <button class="enter-btn" onclick="enterGallery()">Enter Gallery</button>
+    <button class="enter-btn" onclick="startExperience()">ENTER GALLERY</button>
   </div>
 
   <audio id="bg-music" loop>
-    <source src="Running_Up_That_Hill_A_Deal_With_God_2.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const music = document.getElementById("bg-music");
-    function enterGallery() {
-      music.play();
+
+    function startExperience() {
+      // Music play force trigger
+      music.play().then(() => {
+        console.log("Music started");
+      }).catch(error => {
+        console.log("Autoplay blocked, user needs to click");
+      });
+      
       document.getElementById('intro-screen').style.opacity = '0';
       setTimeout(() => { document.getElementById('intro-screen').style.display = 'none'; }, 1500);
     }
+
     function toggleMusic() {
-      music.paused ? music.play() : music.pause();
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
     }
   </script>
 </body>
