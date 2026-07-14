@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Portrait Order - BRUSHORA</title>
+    <link rel="stylesheet" href="assets/index-WSUJVNSk.css">
+</head>
+<body style="background-color: #fcf9f5; padding: 60px 40px; font-family: sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; gap: 60px;">
+        <!-- Left Column Info -->
+        <div style="flex: 1;">
+            <span style="color: #b35936; font-size: 11px; font-weight: bold; letter-spacing: 1px;">CUSTOM PORTRAIT ORDER</span>
+            <h1 style="font-family: serif; font-size: 48px; margin: 15px 0 20px 0; color: #111;">Give your custom portrait order.</h1>
+            <p style="color: #555; line-height: 1.6; font-size: 15px; margin-bottom: 30px;">
+                Use the form for personal portraits, artwork questions, purchase help, or custom drawing ideas. Your order will be saved for the studio to review.
+            </p>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px; font-weight: bold; color: #333;">
+                <li>🎨 Single portrait</li>
+                <li>🎨 Couple or family drawing</li>
+                <li>🎨 Pet portrait</li>
+                <li>🎨 Custom wall artwork</li>
+            </ul>
+        </div>
+
+        <!-- Right Column Form Box -->
+        <div style="flex: 1; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #eee;">
+            <form action="/success" method="POST" data-netlify="true" style="display: flex; flex-direction: column; gap: 20px;">
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #666;">NAME</label>
+                    <input type="text" name="name" placeholder="Your name" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa;">
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #666;">EMAIL</label>
+                    <input type="email" name="email" placeholder="you@example.com" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa;">
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #666;">ARTWORK TYPE</label>
+                        <input type="text" name="type" placeholder="Portrait, pet, gift..." style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #666;">BUDGET</label>
+                        <input type="text" name="budget" placeholder="$250 - $500" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa;">
+                    </div>
+                </div>
+                <div>
+                    <label style="font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #666;">MESSAGE</label>
+                    <textarea name="message" rows="5" placeholder="Tell the artist who or what you want drawn, size ideas, timing, and any reference details." style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; resize: vertical;"></textarea>
+                </div>
+                
+                <!-- Improved premium text action button -->
+                <button type="submit" style="background-color: #b35936; color: #fff; padding: 14px; border: none; border-radius: 25px; font-weight: bold; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    ✉ Request a Commission
+                </button>
+            </form>
+            <div style="margin-top: 20px; font-size: 12px; color: #666; text-align: center;">
+                Direct email: brushora07@gmail.com
+            </div>
+        </div>
+    </div>
+</body>
+</html>
