@@ -60,4 +60,83 @@
         });
     </script>
 </body>
+<!-- BRUSHORA v2 - COMPLETE PREMIUM MODULES -->
+<style>
+    /* Global Reset & Fonts */
+    .v2-wrapper { font-family: 'Inter', sans-serif; background: #f4eee8; color: #1a1a1a; }
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap');
+
+    /* 1. Navbar: Transparent at top, blur on scroll */
+    .v2-nav { position: fixed; top: 0; width: 100%; padding: 20px 10%; display: flex; justify-content: space-between; z-index: 1000; transition: 0.3s; backdrop-filter: blur(10px); }
+
+    /* 2. Hero Section: Split layout with floating card */
+    .v2-hero { display: grid; grid-template-columns: 1fr 1fr; height: 100vh; align-items: center; padding: 0 10%; }
+    .v2-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 5rem; }
+    .v2-floating-card { background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); padding: 20px; width: 250px; position: absolute; bottom: 50px; left: -50px; }
+
+    /* 3. Masonry Layout: Shop the Wall */
+    .v2-gallery { column-count: 3; column-gap: 20px; padding: 50px 10%; }
+    .v2-art-item { break-inside: avoid; margin-bottom: 20px; overflow: hidden; position: relative; }
+    .v2-art-item img { width: 100%; transition: 0.5s; }
+    .v2-art-item:hover img { transform: scale(1.05); }
+
+    /* 4. WhatsApp Pulse Animation */
+    .v2-wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 100% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } }
+</style>
+
+<div class="v2-wrapper">
+    <nav class="v2-nav">
+        <div>BRUSHORA</div>
+        <div>Home | Collection | Commissions</div>
+    </nav>
+
+    <section class="v2-hero">
+        <div>
+            <h1 class="v2-hero-title">BRUSHORA</h1>
+            <p>Artistry Reimagined</p>
+        </div>
+        <div style="position:relative;">
+            <div style="height: 70vh; background: #dcdcdc;"></div>
+            <div class="v2-floating-card">Featured: Quiet Gaze | Charcoal | ₹1499</div>
+        </div>
+    </section>
+
+    <section class="v2-gallery">
+        <div class="v2-art-item"><div style="height: 300px; background: #ccc;"></div></div>
+        <div class="v2-art-item"><div style="height: 400px; background: #bbb;"></div></div>
+        <div class="v2-art-item"><div style="height: 350px; background: #aaa;"></div></div>
+    </section>
+
+    <div class="v2-wa-float"></div>
+</div>
+<!-- BRUSHORA v2 - WhatsApp Integration (Number: 7568035595) -->
+<style>
+    /* Floating WhatsApp Button */
+    .v2-wa-float { 
+        position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
+        background: #25d366; border-radius: 50%; z-index: 9999;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        animation: pulse 2s infinite; color: white; font-size: 30px;
+    }
+</style>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917568035595" target="_blank" class="v2-wa-float">
+    <span>💬</span>
+</a>
+
+<!-- WhatsApp Order Template Script -->
+<script>
+    function sendWhatsAppOrder(artwork, size, medium, price) {
+        const message = `Hi Brushora 👋%0A%0AI'd like to order%0A%0AArtwork: ${artwork}%0ASize: ${size}%0AMedium: ${medium}%0APrice: ₹${price}%0A%0AMy Name:%0AMy Address:`;
+        window.open(`https://wa.me/917568035595?text=${message}`, '_blank');
+    }
+</script>
+
+<!-- Button example to use the order function -->
+<button onclick="sendWhatsAppOrder('Quiet Gaze', 'A3', 'Charcoal', '1499')" 
+        style="padding: 10px 20px; cursor: pointer;">
+    Add to Cart / Buy Now
+</button>
 </html>
