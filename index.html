@@ -1,73 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BRUSHORA | Studio</title>
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; background-color: #fbf6f0; overflow-x: hidden; }
-    
-    /* Grain & Dust Overlay */
-    .overlay-ambient {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 999;
-      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.2;
-    }
-
+    /* Premium Background with subtle grain & glow */
     #intro-screen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: #fbf6f0; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; z-index: 1000; transition: opacity 1s ease;
+      background: radial-gradient(circle at center, #2c2923 0%, #1a1916 100%);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      z-index: 2000; transition: opacity 1.5s ease;
     }
     
-    .music-btn {
-      position: fixed; bottom: 20px; right: 20px; z-index: 1001;
-      padding: 10px 20px; border: 1px solid #2c2923; background: transparent;
-      cursor: pointer; font-size: 10px; text-transform: uppercase;
+    /* Luxury Button Design */
+    .enter-btn {
+      padding: 18px 50px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e9e2d8;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      backdrop-filter: blur(10px); /* Glass effect */
+      transition: all 0.4s ease;
+    }
+    .enter-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
     }
     
-    /* Content */
-    #main-site { display: none; padding: 50px; }
+    h1 { color: #e9e2d8; font-weight: 200; letter-spacing: 8px; margin-bottom: 20px; }
   </style>
 </head>
 <body>
-
-  <div class="overlay-ambient"></div>
-
   <div id="intro-screen">
     <h1>BRUSHORA</h1>
-    <button class="enter-btn" onclick="enterGallery()">[ Enter Gallery ]</button>
+    <button class="enter-btn" onclick="enterGallery()">Enter Gallery</button>
   </div>
-
-  <button class="music-btn" onclick="toggleMusic()">🔊 Music: OFF</button>
-  <audio id="bg-music" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-
-  <div id="main-site">
-    <h1>Welcome to the Studio</h1>
-    <p>Every artwork tells a story.</p>
-  </div>
-
-  <script>
-    function enterGallery() {
-      const intro = document.getElementById('intro-screen');
-      intro.style.opacity = '0';
-      setTimeout(() => { intro.style.display = 'none'; }, 1000);
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById('bg-music');
-      const btn = document.querySelector('.music-btn');
-      if (music.paused) {
-        music.play();
-        btn.innerText = '🔊 Music: ON';
-      } else {
-        music.pause();
-        btn.innerText = '🔊 Music: OFF';
-      }
-    }
-  </script>
-</body>
+  </body>
 </html>
